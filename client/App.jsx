@@ -1,3 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default () => <span>Render whole app here</span>;
+export default class App extends Component {
+  render() {
+    return (
+      <span>Render whole app here</span>
+    );
+  }
+}

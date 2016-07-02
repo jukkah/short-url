@@ -1,0 +1,7 @@
+extends: airbnb
+rules:
+  # Stateless function React components don't work correctly with
+  # react-hot-loader v1. It will be fixed in react-hot-loader v3.
+  # See: https://git.io/vKvHI
+  # TODO: Remove this when react-hot-loader is updated to v3.
+  react/prefer-stateless-function: 0

@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
 
 module.exports = {
   entry: [
@@ -32,5 +33,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new BellOnBundlerErrorPlugin(),
   ],
 };
