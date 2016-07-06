@@ -30,8 +30,10 @@
   },
   "dependencies": {
     "immutable": "^3.8.1",
+    "jquery": "^2.2.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "stardust": "^0.18.0"
   }
 }
