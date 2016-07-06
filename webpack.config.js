@@ -24,7 +24,7 @@ module.exports = {
   },
   output: {
     path: './client/build',
-    publicPath: '/',
+    publicPath: '/build/',
     filename: 'bundle.js',
   },
   devServer: {
