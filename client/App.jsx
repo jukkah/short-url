@@ -2,12 +2,25 @@ import React, { Component } from 'react';
 import { Button, Form, Grid, Icon, Input } from 'stardust';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      form: 'new',
+    };
+  }
+
   renderNewForm() {
+    let save = (event) => {
+      event.preventDefault();
+      this.setState({ form: 'redirecting' });
+    };
+
     return (
       <Form>
-        <Form.Field>
-          <Input className="action" placeholder="Paste your long URL here">
-            <Button type="submit" className="primary">
+        <Form.Field label="Long URL">
+          <Input placeholder="Paste your long URL here" className="action">
+            <Button type="submit" className="primary" onClick={save}>
               <Icon className="save" />
               Shorten
             </Button>
@@ -17,14 +30,40 @@ export default class App extends Component {
     );
   }
 
-  renderSavedForm() {
+  renderRedirectingForm() {
+    let cancel = (event) => {
+      event.preventDefault();
+      this.setState({ form: 'edit' });
+    };
+
+    return (
+      <p>
+        Redirecting to <strong><a href="http://url.io/1234">url.io/1234</a></strong> in {5} seconds... <a href="#" onClick={cancel}>Cancel</a>
+      </p>
+    );
+  }
+
+  renderEditForm() {
+    let goto = (event) => {
+      event.preventDefault();
+      this.setState({ form: 'redirecting' });
+    };
+
     return (
       <Form>
-        <Form.Field>
-          <Input className="action" placeholder="">
+        <Form.Field label="Short URL">
+          <Input disabled defaultValue="url.io/1234" className="action">
+            <Button type="submit" className="primary" onClick={goto}>
+              Go to
+              <Icon className="arrow right" />
+            </Button>
+          </Input>
+        </Form.Field>
+        <Form.Field label="Long URL">
+          <Input className="action" defaultValue="http://github.com/jukkah/short-url">
             <Button type="submit" className="primary">
-              <Icon className="external" />
-              Redirect
+              <Icon className="save" />
+              Update
             </Button>
           </Input>
         </Form.Field>
@@ -33,10 +72,24 @@ export default class App extends Component {
   }
 
   render() {
+    let form = null;
+    switch (this.state.form) {
+      case 'new':
+        form = this.renderNewForm();
+        break;
+      case 'redirecting':
+        form = this.renderRedirectingForm();
+        break;
+      case 'edit':
+        form = this.renderEditForm();
+        break;
+      default:
+    }
+
     return (
       <Grid className="middle aligned center aligned">
         <Grid.Column>
-          {this.renderSavedForm()}
+          {form}
         </Grid.Column>
       </Grid>
     );
