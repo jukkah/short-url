@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Icon, Input } from 'stardust';
+import { Button, Form, Grid, Header, Icon, Input } from 'stardust';
 
 export default class App extends Component {
   constructor(props) {
@@ -17,16 +17,24 @@ export default class App extends Component {
     };
 
     return (
-      <Form>
-        <Form.Field label="Long URL">
-          <Input placeholder="Paste your long URL here" className="action">
-            <Button type="submit" className="primary" onClick={save}>
-              <Icon className="save" />
-              Shorten
-            </Button>
-          </Input>
-        </Form.Field>
-      </Form>
+      <Grid.Column className="left aligned twelve wide">
+        <Header.H1>
+          short-url
+          <Header.Subheader>
+            Simple URL shortener application - v1.0.0
+          </Header.Subheader>
+        </Header.H1>
+        <Form>
+          <Form.Field label="Long URL">
+            <Input placeholder="Paste your long URL here" className="action">
+              <Button type="submit" className="primary" onClick={save}>
+                <Icon className="save" />
+                Shorten
+              </Button>
+            </Input>
+          </Form.Field>
+        </Form>
+      </Grid.Column>
     );
   }
 
@@ -37,9 +45,11 @@ export default class App extends Component {
     };
 
     return (
-      <p>
-        Redirecting to <strong><a href="http://url.io/1234">url.io/1234</a></strong> in {5} seconds... <a href="#" onClick={cancel}>Cancel</a>
-      </p>
+      <Grid.Column className="center aligned twelve wide">
+        <p>
+          Redirecting to <strong><a href="http://url.io/1234">url.io/1234</a></strong> in {5} seconds... <a href="#" onClick={cancel}>Cancel</a>
+        </p>
+      </Grid.Column>
     );
   }
 
@@ -50,24 +60,32 @@ export default class App extends Component {
     };
 
     return (
-      <Form>
-        <Form.Field label="Short URL">
-          <Input disabled defaultValue="url.io/1234" className="action">
-            <Button type="submit" className="primary" onClick={goto}>
-              Go to
-              <Icon className="arrow right" />
-            </Button>
-          </Input>
-        </Form.Field>
-        <Form.Field label="Long URL">
-          <Input className="action" defaultValue="http://github.com/jukkah/short-url">
-            <Button type="submit" className="primary">
-              <Icon className="save" />
-              Update
-            </Button>
-          </Input>
-        </Form.Field>
-      </Form>
+      <Grid.Column className="left aligned twelve wide">
+        <Header.H1>
+          short-url
+          <Header.Subheader>
+            Simple URL shortener application - v1.0.0
+          </Header.Subheader>
+        </Header.H1>
+        <Form>
+          <Form.Field label="Short URL">
+            <Input disabled defaultValue="url.io/1234" className="action">
+              <Button type="submit" className="primary" onClick={goto}>
+                Go to
+                <Icon className="arrow right" />
+              </Button>
+            </Input>
+          </Form.Field>
+          <Form.Field label="Long URL">
+            <Input className="action" defaultValue="http://github.com/jukkah/short-url">
+              <Button type="submit" className="primary">
+                <Icon className="save" />
+                Update
+              </Button>
+            </Input>
+          </Form.Field>
+        </Form>
+      </Grid.Column>
     );
   }
 
@@ -86,11 +104,13 @@ export default class App extends Component {
       default:
     }
 
+    let style = {
+      height: '100%',
+    };
+
     return (
-      <Grid className="middle aligned center aligned">
-        <Grid.Column>
-          {form}
-        </Grid.Column>
+      <Grid className="stackable container middle aligned center aligned" style={style}>
+        {form}
       </Grid>
     );
   }
