@@ -27,9 +27,6 @@ module.exports = {
     publicPath: '/build/',
     filename: 'bundle.js',
   },
-  externals: {
-    jquery: 'jQuery',
-  },
   devServer: {
     contentBase: './client',
     hot: true,
