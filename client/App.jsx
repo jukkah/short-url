@@ -47,7 +47,7 @@ export default class App extends Component {
     return (
       <Grid.Column className="center aligned twelve wide">
         <p>
-          Redirecting to <strong><a href="http://url.io/1234">url.io/1234</a></strong> in {5} seconds... <a href="#" onClick={cancel}>Cancel</a>
+          Redirecting to <strong><a href="http://github.com/jukkah/short-url">http://github.com/jukkah/short-url</a></strong> in {5} seconds... <a href="#" onClick={cancel}>Cancel</a>
         </p>
       </Grid.Column>
     );
