@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Header, Icon, Input } from 'stardust';
+import { Button, Form, Grid, Icon, Input } from 'stardust';
+import Header from './components/Header';
 
 export default class App extends Component {
   constructor(props) {
@@ -18,12 +19,11 @@ export default class App extends Component {
 
     return (
       <Grid.Column className="left aligned twelve wide">
-        <Header.H1>
-          short-url
-          <Header.Subheader>
-            Simple URL shortener application - v1.0.0
-          </Header.Subheader>
-        </Header.H1>
+        <Header
+          name="short-url"
+          slogan="Simple URL shortener application"
+          version="v1.0.0"
+        />
         <Form>
           <Form.Field label="Long URL">
             <Input placeholder="Paste your long URL here" className="action">
@@ -61,12 +61,11 @@ export default class App extends Component {
 
     return (
       <Grid.Column className="left aligned twelve wide">
-        <Header.H1>
-          short-url
-          <Header.Subheader>
-            Simple URL shortener application - v1.0.0
-          </Header.Subheader>
-        </Header.H1>
+        <Header
+          name="short-url"
+          slogan="Simple URL shortener application"
+          version="v1.0.0"
+        />
         <Form>
           <Form.Field label="Short URL">
             <Input disabled defaultValue="url.io/1234" className="action">
