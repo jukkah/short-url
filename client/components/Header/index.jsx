@@ -1,19 +1,21 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Header as Heading } from 'stardust';
 
-const Header = (props) => (
-  <Heading.H1>
-    {props.name}
-    <Heading.Subheader>
-      {props.slogan} – {props.version}
-    </Heading.Subheader>
-  </Heading.H1>
-);
+export default class Header extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    slogan: PropTypes.string.isRequired,
+    version: PropTypes.string.isRequired,
+  };
 
-Header.propTypes = {
-  name: PropTypes.string.isRequired,
-  slogan: PropTypes.string.isRequired,
-  version: PropTypes.string.isRequired,
-};
-
-export default Header;
+  render() {
+    return (
+      <Heading.H1>
+        {this.props.name}
+        <Heading.Subheader>
+          {this.props.slogan} – {this.props.version}
+        </Heading.Subheader>
+      </Heading.H1>
+    );
+  }
+}
