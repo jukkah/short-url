@@ -1,3 +1,4 @@
+parser: 'babel-eslint'
 extends: airbnb
 rules:
   # Stateless function React components don't work correctly with
