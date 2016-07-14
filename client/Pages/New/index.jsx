@@ -17,11 +17,7 @@ export default class New extends Component {
   render() {
     return (
       <Grid.Column className="left aligned twelve wide">
-        <Header
-          name="short-url"
-          slogan="Simple URL shortener application"
-          version="v1.0.0"
-        />
+        <Header />
         <Form>
           <Form.Field label="Long URL">
             <Input placeholder="Paste your long URL here" className="action">

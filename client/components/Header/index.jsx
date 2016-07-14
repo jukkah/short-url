@@ -1,20 +1,16 @@
-import React, { Component, PropTypes } from 'react';
-import { Header as Heading } from 'stardust';
+import React, { Component } from 'react';
+import { Header as Heading, Icon } from 'stardust';
 
 export default class Header extends Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    slogan: PropTypes.string.isRequired,
-    version: PropTypes.string.isRequired,
-  };
-
   render() {
     return (
-      <Heading.H1>
-        {this.props.name}
-        <Heading.Subheader>
-          {this.props.slogan} – {this.props.version}
-        </Heading.Subheader>
+      <Heading.H1 image={<Icon className="external" />}>
+        <div className="content">
+          short-url
+          <Heading.Subheader>
+            Simple URL shortener application – v1.0.0
+          </Heading.Subheader>
+        </div>
       </Heading.H1>
     );
   }
